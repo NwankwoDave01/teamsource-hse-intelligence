@@ -1,4 +1,4 @@
-HSE Intelligence API (Backend)
+# HSE Intelligence API (Backend)
 
 The backend for HSE Intelligence, an AI-powered Health, Safety and Environment (HSE) Management and Incident Intelligence Platform for industrial businesses (oil and gas, manufacturing, construction, logistics and more).
 
@@ -6,7 +6,7 @@ Built with Python 3.13 and FastAPI.
 
 Current status (Task 001): backend foundation with a health-check endpoint, Pydantic schemas, a service layer and automated tests. Database (PostgreSQL, SQLAlchemy, Alembic) and AI features come in later tasks.
 
-Prerequisites
+## Prerequisites
 Tool	Version	Check with
 Git	any recent	git --version
 Python	3.13	python3.13 --version
@@ -14,15 +14,15 @@ VS Code (or another IDE)	any
 
 Windows users: we recommend WSL (Ubuntu). Keep the project inside the Linux filesystem (e.g. ~/projects/), not under /mnt/c/.
 
-Setup
+## Setup
 
 All commands below are run in a terminal.
 
-1. Clone the repository
+### 1. Clone the repository
 bash
 git clone https://github.com/NwankwoDave01/teamsource-hse-intelligence.git
 cd teamsource-hse-intelligence/backend
-2. Create a virtual environment
+### 2. Create a virtual environment
 
 A virtual environment keeps this project's packages separate from everything else on your computer. Use one of the options below.
 
@@ -35,7 +35,8 @@ Option B: using uv
 
 bash
 uv venv --python 3.13 .venv
-3. Activate it
+
+### 3. Activate it
 bash
 source .venv/bin/activate          # Linux / WSL / macOS
 # .venv\Scripts\activate           # Windows PowerShell
@@ -44,7 +45,8 @@ You should now see (.venv) at the start of your prompt. Confirm the version:
 
 bash
 python --version                   # should print Python 3.13.x
-4. Install dependencies
+
+### 4. Install dependencies
 bash
 pip install -r requirements.txt
 Run the application
@@ -66,7 +68,7 @@ http://127.0.0.1:8000/redoc	Alternative API documentation
 
 Stop the server with Ctrl + C.
 
-Example response
+### Example response
 bash
 curl http://127.0.0.1:8000/health
 json
@@ -111,7 +113,7 @@ teamsource-hse-intelligence/
     │       └── health_service.py # Business logic (no HTTP knowledge)
     └── tests/                    # Automated tests (pytest)
 
-How a request flows through the code
+### How a request flows through the code
 Request → uvicorn → main.py → routes/health.py → services/health_service.py → schemas/health.py
 Response ← JSON    ←          ←                 ←                           ←
 Layer	Responsibility
@@ -135,7 +137,7 @@ Then open a Pull Request on GitHub and ask a teammate to review it before mergin
 
 Branch names: feature/..., fix/..., docs/... Never commit: .venv/, __pycache__/, .env.
 
-Troubleshooting
+## Troubleshooting
 Problem	Fix
 ModuleNotFoundError: No module named 'app'	You are not in the backend/ folder. Run cd backend. Use python -m pytest.
 command not found: uvicorn / pytest	The virtual environment is not active. Run source .venv/bin/activate.
